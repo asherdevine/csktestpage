@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" id="html-element">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centre Social Kariat</title>
+    <link rel="icon" type="image/png" href="csklogo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css?v=3.0">
+    <script src="translations.js?v=3.5"></script>
+    <script src="force-refresh.js?v=3.0"></script>
+    <script src="components/csk-navbar.js?v=3.4"></script>
+    <script src="components/csk-footer.js?v=1.3"></script>
+    <script src="components/csk-language-handler.js?v=1.2"></script>
+</head>
+<body>
+    <!-- Navigation using Web Component -->
+    <csk-navbar></csk-navbar>
+    <!-- Language handler component (invisible) -->
+    <csk-language-handler></csk-language-handler>
+
+    <!-- Carousel -->
+    <div id="homeCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/cta-bg1.jpg" class="d-block w-100" alt="Community Center">
+                <div class="carousel-caption">
+                    <h1 data-i18n="carousel_welcome">Help Our Community Plant Roots</h1>
+                    <a href="land-campaign.html" class="btn btn-carousel btn-tan" data-i18n="carousel_welcome_text">Learn about our Land Campaign</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/class10.jpg" class="d-block w-100" alt="Educational Programs">
+                <div class="carousel-caption">
+                    <h1 data-i18n="carousel_youth">Meet Our Youth</h1>
+                    <a href="youth-stories.html" class="btn btn-carousel btn-red" data-i18n="carousel_youth_text">Read their stories</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/crafts1.jpg" class="d-block w-100" alt="Community Activities">
+                <div class="carousel-caption">
+                    <h1 data-i18n="carousel_community">Support Our Programs</h1>
+                    <a href="support-us.html" class="btn btn-carousel btn-blue" data-i18n="carousel_community_text">Donate Today!</a>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 d-flex flex-column justify-content-between about-text-container">
+                    <div>
+                        <h2 class="section-title mb-3" data-i18n="about_title">About CSK</h2>
+                        <p class="about-lead mb-2" data-i18n="about_lead">CSK is a non-profit NGO in Sale, Morocco helping children with disabilities and their families with love, compassion and commitment. CSK provides physical therapy, training, education, emotional care, practical help, and advice.</p>
+                        
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <h5 class="mb-1" data-i18n="about_mission_title">Our Mission</h5>
+                                <p class="small mb-2" data-i18n="about_mission">Empower children with disabilities and integrate them as far as possible into everyday life in Morocco.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="mb-1" data-i18n="about_vision_title">Our Vision</h5>
+                                <p class="small mb-2" data-i18n="about_vision">CSK believes that all children are valued as individuals who grow, develop and learn. Despite their challenges, these children have the potential to live more enjoyable lives and make a contribution to society.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <a href="our-story.html" class="btn btn-primary" data-i18n="about_btn" onclick="window.location.href='our-story.html'; return false;">Learn More About Us</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0 about-image-container">
+                    <img src="images/frontpic.jpg" class="img-fluid rounded h-100 object-fit-cover" alt="About Us">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Programs Section -->
+    <section id="programs-overview" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="section-title" data-i18n="programs_overview_title">Our Programs</h2>
+                <div class="d-flex justify-content-center">
+                    <p class="about-lead" style="max-width: 800px; text-align: justify;" data-i18n="programs_overview_lead">We offer weekly programs for children and young people with disabilities, their mothers, and the Kariat community. Our programs provide education, support, health, and social opportunities and are a way for kids and their families to connect and have fun out of the house.</p>
+                </div>
+                <div class="mt-3 mb-4">
+                    <a href="programs.html" class="btn btn-accent-blue" data-i18n="programs_overview_btn">See All Our Programs</a>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="program-card h-100">
+                        <a href="programs.html#youth-programs">
+                            <img src="images/horsesq.jpg" class="img-fluid" alt="Youth programs">
+                        </a>
+                        <div class="mt-3">
+                            <h5 class="mb-1" data-i18n="programs_overview_therapy_title">Youth Programs</h5>
+                            <p class="small" data-i18n="programs_overview_therapy">Classes, outings, gardening, physical therapy, swimming, and more!</p>
+                            <div class="text-center mt-3">
+                                <a href="programs.html#youth-programs" class="btn btn-primary" data-i18n="learn_more_youth">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="program-card h-100">
+                        <a href="programs.html#womens-programs">
+                            <img src="images/moms3.jpg" class="img-fluid" alt="Women's Programs">
+                        </a>
+                        <div class="mt-3">
+                            <h5 class="mb-1" data-i18n="programs_overview_education_title">Women's Programs</h5>
+                            <p class="small" data-i18n="programs_overview_education">Literacy classes, social gatherings, and skills programs for women in our community.</p>
+                            <div class="text-center mt-3">
+                                <a href="programs.html#womens-programs" class="btn btn-primary" data-i18n="learn_more_women">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="program-card h-100">
+                        <a href="programs.html#community-assistance">
+                            <img src="images/volunteerph.jpg" class="img-fluid" alt="Community Support">
+                        </a>
+                        <div class="mt-3">
+                            <h5 class="mb-1" data-i18n="programs_overview_community_title">Community Assistance</h5>
+                            <p class="small" data-i18n="programs_overview_community">Support for Kariat through supplies, advice, medical care, and seminars.</p>
+                            <div class="text-center mt-3">
+                                <a href="programs.html#community-assistance" class="btn btn-primary" data-i18n="learn_more_community">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-i18n="gallery_title">Support us to help our kids</h2>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <img src="images/class10.jpg" class="img-fluid rounded" alt="Children in class">
+                    <div class="text-center mt-3">
+                        <a href="support-us.html" class="btn btn-primary" data-i18n="gallery_btn_donate">Donate, volunteer, or keep in touch</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img src="images/farming3.jpg" class="img-fluid rounded" alt="Community farming">
+                    <div class="text-center mt-3">
+                        <a href="support-us.html" class="btn btn-primary" data-i18n="gallery_btn_help">Find out if you can help</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer using Web Component -->
+    <csk-footer></csk-footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/carousel-button-resize.js"></script>
+</body>
+</html>

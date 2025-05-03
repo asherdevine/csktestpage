@@ -1,0 +1,11 @@
+# Development files
+no_cache_server.py
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.log
+*.tmp
+
+# Office documents
+*.docx

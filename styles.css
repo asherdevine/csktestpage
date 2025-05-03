@@ -1,0 +1,367 @@
+/* General Styles */
+:root {
+    --bg-color: #e9dcc85d; /* Warm off-white */
+    --accent-color: #4a7c59; /* Forest green */
+    --accent-light: #8cb369; /* Light green */
+    --accent-dark: #39603d; /* Dark green */
+    --accent-blue:  #325272; /* Dark blue */
+    --text-color: #333333; /* Dark text */
+    --footer-color: #343a40; /* Dark footer */
+    --neutral-light: #e8e2d7; /* Light neutral */
+    --neutral-medium: #d3c9b6; /* Medium neutral */
+    --section-bg-light: #f8f9fa; /* Light background for sections (Bootstrap bg-light equivalent) */
+}
+
+body {
+    padding-top: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* General styles moved to CSS variables in :root */
+
+/* Component-specific styles have been moved to their respective web components */
+
+/* Any speech bubble styles needed outside components should be added here */
+
+
+/* RTL Support */
+body.rtl {
+    direction: rtl;
+    text-align: right;
+}
+
+body.rtl .section-title::after {
+    right: 0;
+    left: auto;
+}
+
+body.rtl .text-center .section-title::after {
+    right: 50%;
+    transform: translateX(50%);
+}
+
+/* Component-specific RTL styles have been moved to their respective web components */
+
+
+/* Carousel Styles */
+#homeCarousel {
+    margin-top: 45px; /* Match the navbar height */
+}
+
+.carousel-item {
+    height: calc(100vh - 45px); /* Subtract navbar height from viewport height */
+    min-height: 400px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    height: 100%;
+    min-height: 400px;
+    width: 100%;
+}
+
+.carousel-caption {
+    padding: 20px;
+    bottom: 20%;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.carousel-caption h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.carousel-caption p {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.carousel-caption .btn-carousel {
+    font-size: 1.2rem;
+    font-weight: 550;
+    padding: 0.5rem 1.5rem;
+    margin-top: 0.5rem;
+    background-color: var(--accent-blue);
+    color: white;
+    text-shadow: none;
+    border: none;
+    white-space: normal;
+    display: inline-block;
+    max-width: 100%;
+}
+
+/* Resize text when button text wraps to multiple lines */
+.carousel-caption .btn-carousel:not(:empty)::after {
+    content: '';
+    display: block;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Apply smaller font size when button text wraps */
+.carousel-caption .btn-carousel.wrapped-text {
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+/* Hide carousel controls */
+.carousel-control-prev,
+.carousel-control-next {
+    display: none;
+}
+
+/* Section Styles */
+.section-title {
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+    font-weight: 700;
+    color: var(--text-color);
+    scroll-margin-top: 100px; /* Add space for fixed navbar when using anchor links */
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--text-color);
+}
+
+.text-center .section-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* About Section */
+#about {
+    padding-top: calc(2rem + 1vw);
+    padding-bottom: calc(2rem + 1vw);
+}
+
+.about-text-container {
+    height: 100%;
+    padding-right: calc(0.5rem + 1vw);
+}
+
+.about-image-container {
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+@media (min-width: 992px) {
+    .about-image-container {
+        min-height: calc(350px + 5vw);
+        max-height: 600px;
+        display: flex;
+        align-items: flex-end;
+    }
+    
+    .about-text-container {
+        min-height: calc(350px + 5vw);
+        max-height: 600px;
+    }
+}
+
+.object-fit-cover {
+    object-fit: cover;
+    width: 100%;
+    transition: all 0.3s ease;
+    object-position: center 25%;
+}
+
+#about .img-fluid {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#about .img-fluid:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+#about .about-lead {
+    font-size: calc(0.85rem + 0.2vw);
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: calc(0.5rem + 0.3vw);
+}
+
+#about p.small {
+    font-size: calc(0.75rem + 0.15vw);
+    line-height: 1.4;
+    margin-bottom: calc(0.3rem + 0.2vw);
+}
+
+#about h5 {
+    font-size: calc(0.9rem + 0.2vw);
+    font-weight: 600;
+    margin-bottom: calc(0.3rem + 0.1vw);
+}
+
+#about .mt-3 {
+    margin-top: calc(0.75rem + 0.5vw) !important;
+}
+
+#about .mb-2 {
+    margin-bottom: calc(0.5rem + 0.2vw) !important;
+}
+
+#about .row.mt-3 {
+    margin-top: calc(0.75rem + 0.3vw) !important;
+}
+
+/* Card Styles */
+.card {
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border: 1px solid var(--neutral-medium);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-dark);
+    border-color: var(--accent-dark);
+    transform: translateY(-2px);
+}
+
+.btn-accent-blue {
+    background-color: var(--accent-blue);
+    border-color: var(--accent-blue);
+    color: white;
+}
+
+.btn-accent-blue:hover {
+    background-color: #264260;
+    border-color: #264260;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Program Cards */
+.program-card {
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.program-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.program-card img {
+    border-radius: 8px;
+    object-fit: cover;
+    width: 100%;
+    aspect-ratio: 3/2; /* Default 3:2 aspect ratio for mobile/vertical layout */
+}
+
+/* Make images square when displayed side-by-side on larger screens */
+@media (min-width: 768px) {
+    .program-card img {
+        aspect-ratio: 1/1; /* Square aspect ratio for desktop/side-by-side layout */
+    }
+}
+
+.program-card .btn {
+    align-self: center;
+}
+
+/* Gallery Styles */
+#gallery img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Page Content Styles */
+.page-content {
+    padding: 3rem 0;
+}
+
+.page-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.page-content h2, 
+.page-content h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--footer-color);
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer .bi {
+    margin-right: 10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #homeCarousel {
+        margin-top: 45px; /* Maintain navbar height on mobile */
+    }
+    
+    .carousel-item {
+        height: calc(100vh - 45px); /* Maintain adjusted height on mobile */
+    }
+    
+    .carousel-item img {
+        height: 100%;
+    }
+    
+    .carousel-caption {
+        bottom: 10%;
+    }
+    
+    .carousel-caption h1 {
+        font-size: 2rem;
+    }
+    
+    .carousel-caption p {
+        font-size: 1.2rem;
+    }
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" id="html-element">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story - Centre Social Kariat</title>
+    <link rel="icon" type="image/png" href="csklogo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css?v=3.0">
+    <script src="translations.js?v=3.5"></script>
+    <script src="force-refresh.js?v=3.0"></script>
+    <script src="components/csk-navbar.js?v=3.4"></script>
+    <script src="components/csk-footer.js?v=1.3"></script>
+    <script src="components/csk-language-handler.js?v=1.2"></script>
+    <script src="components/csk-page-header.js?v=1.0"></script>
+</head>
+<body>
+    <!-- Navigation using Web Component -->
+    <csk-navbar></csk-navbar>
+    <!-- Language handler component (invisible) -->
+    <csk-language-handler></csk-language-handler>
+
+    <!-- Page Header -->
+    <csk-page-header image="images/pic3.jpg" title-key="about_page_title" title="Our Story"></csk-page-header>
+
+    <!-- About Page Content -->
+    <div class="container py-5 page-content">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-xl-9 px-3 px-sm-4">
+
+                <p data-i18n="about_story_p1">
+                    Centre Social Kariat (CSK) was founded by Louis Brosky, director and 'father' of CSK. As a physical therapist, he hoped to help children with disabilities and their parents by creating a place where they could feel at home. In 2003 he went to Kariat Oulad Moussa in Sale and roamed the streets in search of families with handicapped children. He asked them if they needed therapy. 'Yes, please', was the answer, 'but we can not pay for it'. His answer was, as it is today, 'I will do it for free'.
+                </p>
+                
+                <p data-i18n="about_story_p2">
+                    The message spread across Kariat and soon mothers began to bring their children. The first volunteers from the UK and Korea came to help Louis. The work grew rapidly, the numbers of children, and more importantly, the relationship with the mothers and their children grew. Louis' family-therapy philosophy proved to be working. Mothers got involved in lessons on how to give simple therapy to their children at home. The locals from Kariat got to know the Centre and respected it for its special work. Acceptance and integration grew and mothers found it easier to take the step to open the door of CSK.
+                </p>
+                
+                <p data-i18n="about_story_p3">
+                    Today, CSK serves over [] kids/families and offers numerous weekly programs. Most importantly, we provide a space for our youth and their families to connect and form community. By telling their stories to each other and CSK staff, our members can share their problems, listen, offer help, and find a feeling of family.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer using Web Component -->
+    <csk-footer></csk-footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Land Campaign - Centre Social Kariat</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css?v=3.0">
+    <script src="translations.js?v=3.5"></script>
+    <script src="force-refresh.js?v=3.0"></script>
+    <script src="components/csk-navbar.js?v=3.4"></script>
+    <script src="components/csk-footer.js?v=1.3"></script>
+    <script src="components/csk-language-handler.js?v=1.2"></script>
+    <script src="components/csk-page-header.js?v=1.0"></script>
+</head>
+<body>
+    <!-- Navigation using Web Component -->
+    <csk-navbar></csk-navbar>
+    
+    <!-- Language handler component (invisible) -->
+    <csk-language-handler></csk-language-handler>
+
+    <!-- Page Header -->
+    <csk-page-header image="images/farming3.jpg" title-key="land_campaign_title" title="Land Campaign"></csk-page-header>
+
+    <!-- Land Campaign Page Content -->
+    <div class="container py-5 page-content">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-xl-9 px-3 px-sm-4">
+                <h3 class="mt-5" data-i18n="land_campaign_subtitle">Can you help us find land for our future?</h3>
+                
+                <p data-i18n="land_campaign_intro">
+                    For over 20 years, our association has served children, youth, and families with love, dedication, and a deep commitment to their growth and well-being. But today, we face a challenge that limits our ability to support them fully: we lack a permanent space where their diverse needs can be met safely and effectively. This logistical issue forces us to move from place to place just to provide basic access to activities, making it difficult to offer the stable, supportive environment our members need and deserve.
+                </p>
+                
+                <p data-i18n="land_campaign_need">
+                    This brings us to our need:<br>
+                    We are looking for a 2-hectare piece of land within 20–25 minutes of Kariat, with access to water and permission to build necessary facilities.
+                </p>
+                
+                <p data-i18n="land_campaign_plans_intro">
+                    On this land, we will establish:
+                </p>
+                <ul class="mb-4">
+                    <li data-i18n="land_campaign_plans_house">A house with a kitchen, classrooms, and social spaces</li>
+                    <li data-i18n="land_campaign_plans_pool">A swimming pool and small basketball/football court</li>
+                    <li data-i18n="land_campaign_plans_stables">Stables for horses, ponies, and other animals</li>
+                    <li data-i18n="land_campaign_plans_farm">A family farm to create hands-on work and learning opportunities for our members and support our programs financially</li>
+                </ul>
+                
+                <p data-i18n="land_campaign_conclusion">
+                    This land will allow us to provide inclusive programs for all, especially our young adults seeking meaningful work and our cherished members with major disabilities, who deserve joy, connection, and a place that truly belongs to them.
+                </p>
+                
+                <p data-i18n="land_campaign_call_to_action">
+                    If you can help us make this vision a reality - If you can offer land, know someone who can, or can support this initiative in any way, please reach out.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer using Web Component -->
+    <csk-footer></csk-footer>
+</body>
+</html>
