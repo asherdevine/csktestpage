@@ -3,6 +3,9 @@
  * A custom element that provides a reusable navigation bar for the Centre Social Kariat website
  */
 class CSKNavbar extends HTMLElement {
+  // Breakpoint for switching between wide and narrow screens (in pixels)
+  static NAVBAR_BREAKPOINT = 960;
+  
   constructor() {
     super();
     // Create a shadow root for encapsulation
@@ -39,7 +42,7 @@ class CSKNavbar extends HTMLElement {
           left: 0;
           width: 100%;
           z-index: 1030;
-          padding: 0.5rem 1rem;
+          padding: 0 1rem;
           height: 45px;
         }
         
@@ -96,16 +99,22 @@ class CSKNavbar extends HTMLElement {
         
         .nav-item {
           margin-right: 1rem;
+          display: flex;
+          align-items: center;
         }
         
         .nav-link {
-          padding: 0.5rem 0;
-          display: block;
+          padding: 0 0.75rem;
+          margin: 0;
+          display: flex;
+          align-items: center;
+          height: 45px; /* Full height of navbar */
           text-decoration: none;
           color: #333;
           transition: color 0.2s ease;
           font-size: 1rem;
           font-family: inherit;
+          white-space: nowrap; /* Prevent text wrapping */
         }
         
         /* RTL support for nav links in mobile view */
@@ -121,6 +130,9 @@ class CSKNavbar extends HTMLElement {
         
         .dropdown {
           position: relative;
+          height: 45px; /* Full height of navbar */
+          display: flex;
+          align-items: center;
         }
         
         .dropdown-toggle {
@@ -129,11 +141,57 @@ class CSKNavbar extends HTMLElement {
           color: #333333;
           font-weight: 600;
           cursor: pointer;
-          padding: 0.5rem 0;
+          padding: 0 0.75rem;
+          margin: 0;
           display: flex;
           align-items: center;
           font-size: 1rem;
           font-family: inherit;
+        }
+        
+        .navbar-nav .dropdown-toggle {
+          padding: 0 0.75rem;
+          margin: 0;
+          display: flex;
+          align-items: center;
+          height: 45px; /* Full height of navbar */
+          font-size: 1rem;
+          font-family: inherit;
+          white-space: nowrap; /* Prevent text wrapping */
+        }
+        
+        @media (max-width: ${CSKNavbar.NAVBAR_BREAKPOINT}px) {
+          .navbar-nav .dropdown-toggle {
+            height: auto; /* Reset height for mobile view */
+            padding: 0 0.75rem;
+          }
+          
+          .dropdown {
+            height: auto; /* Reset height for mobile view */
+            display: block;
+          }
+        }
+        
+        .language-switcher .dropdown-toggle {
+          display: flex;
+          align-items: center;
+          padding: 0.5rem 0.75rem;
+          margin-right: 10px; /* Add margin to separate from hamburger */
+          background-color: transparent;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 0.9rem;
+          color: #333;
+          text-decoration: none;
+          transition: background-color 0.2s ease;
+          position: relative;
+          height: auto; /* Keep original height for language dropdown */
+        }
+        
+        /* RTL margin for language picker */
+        :host-context([dir="rtl"]) .dropdown-toggle {
+          margin-right: 0;
+          margin-left: 10px;
         }
         
         .dropdown-menu {
@@ -156,20 +214,7 @@ class CSKNavbar extends HTMLElement {
           display: block;
         }
         
-        .dropdown-toggle {
-          display: flex;
-          align-items: center;
-          padding: 0.5rem 0.75rem;
-          margin-right: 10px; /* Add margin to separate from hamburger */
-          background-color: transparent; /* Changed from #f0f0f0 to match nav links */
-          border-radius: 4px;
-          cursor: pointer;
-          font-size: 0.9rem;
-          color: #333;
-          text-decoration: none;
-          transition: background-color 0.2s ease;
-          position: relative; /* Added for absolute positioning of active indicator */
-        }
+        /* This style block is now handled above */
         
         /* RTL margin for language picker */
         :host-context([dir="rtl"]) .dropdown-toggle {
@@ -199,7 +244,7 @@ class CSKNavbar extends HTMLElement {
           display: flex;
           align-items: center;
           margin-left: 1.5rem;
-          padding-right: 30px; /* Increased right margin */
+          padding-right: 3.5rem; /* Padding from right edge of screen */
         }
         
         .lang-btn {
@@ -317,7 +362,7 @@ class CSKNavbar extends HTMLElement {
         }
         
         /* Responsive adjustments */
-        @media (max-width: 768px) {
+        @media (max-width: ${CSKNavbar.NAVBAR_BREAKPOINT}px) {
           .navbar-toggler {
             display: block;
             position: absolute;
@@ -395,12 +440,16 @@ class CSKNavbar extends HTMLElement {
             margin-right: 0;
             margin-bottom: 0.75rem;
             width: 100%;
+            height: auto; /* Reset height for mobile view */
+            display: block;
           }
           
           .nav-link {
             display: block;
             width: 100%;
-            padding: 0.5rem 0;
+            padding: 0.5rem 0.75rem;
+            height: auto; /* Reset height for mobile view */
+            align-items: flex-start;
           }
           
           .dropdown-menu {
@@ -417,7 +466,7 @@ class CSKNavbar extends HTMLElement {
           
           .language-switcher {
             margin-left: 0;
-            padding-right: 0;
+            padding-right: 1rem; /* Add padding from right edge in mobile view */
             height: 30px; /* Reduced height */
             display: flex;
             align-items: center;
@@ -511,7 +560,7 @@ class CSKNavbar extends HTMLElement {
       
       // Close mobile menu when window is resized to desktop size
       window.addEventListener('resize', () => {
-        if (window.innerWidth > 768 && navContainer.classList.contains('show')) {
+        if (window.innerWidth > CSKNavbar.NAVBAR_BREAKPOINT && navContainer.classList.contains('show')) {
           navbarToggler.classList.remove('active');
           navContainer.classList.remove('show');
         }
