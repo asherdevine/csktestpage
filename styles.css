@@ -21,6 +21,28 @@ body {
 
 /* General styles moved to CSS variables in :root */
 
+/* Custom CSS for Centre Social Kariat */
+
+/* Lazy Loading Styles */
+.lazy-image {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    min-height: 1px;
+}
+
+.lazy-image.loaded {
+    opacity: 1;
+}
+
+.lazy-background {
+    background-color: #f0f0f0;
+    transition: background-image 0.3s ease-in-out;
+}
+
+.lazy-background.bg-loaded {
+    background-color: transparent;
+}
+
 /* Component-specific styles have been moved to their respective web components */
 
 /* Any speech bubble styles needed outside components should be added here */
