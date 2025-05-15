@@ -8,6 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="styles.css?v=3.0">
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="translations.js?v=3.5"></script>
     <script src="force-refresh.js?v=3.0"></script>
     <script src="components/csk-navbar.js?v=3.4"></script>
@@ -19,8 +21,8 @@
             transition: box-shadow 0.3s ease, transform 0.3s ease;
         }
         .hover-shadow:hover {
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-            transform: translateY(-5px);
+            box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.1) !important;
+            transform: translateY(-2px) scale(1.01);
         }
     </style>
 </head>
@@ -37,84 +39,134 @@
     <!-- Support Us Page Content -->
     <div class="py-5 bg-light">
         <div class="container page-content">
-        <div class="row justify-content-center">
-            <div class="col-lg-10 col-xl-9 px-3 px-sm-4 text-center">
-                <p class="lead" data-i18n="support_us_placeholder">Our essential programs rely on community support. There are many ways to help!</p>
-            </div>
-        </div>
-    </div>
-    </div>
-
-    <!-- Donation Section -->
-    <section class="py-5" style="background-color: var(--bg-color);">
-        <div class="container">
+            <!-- Title -->
             <div class="row justify-content-center">
+                <div class="col-lg-10 col-xl-9 px-3 px-sm-4 text-center">
+                    <h4 class="mb-5" data-i18n="support_us_placeholder">Our essential programs rely on community support. There are many ways to help!</h4>
+                </div>
+            </div>
+            
+            <!-- Donation Card -->
+            <div class="row justify-content-center mb-5">
                 <div class="col-lg-10 col-xl-9 px-3 px-sm-4">
-                    <div class="row align-items-center">
-                        <div class="col-md-6 mb-4 mb-md-0 text-center">
-                            <div style="width: 200px; height: 200px; display: inline-block; overflow: hidden; border-radius: 0.25rem; box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);">
-                                <img src="images/donationph.jpg" alt="Donation" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="donation-card-container mx-auto" style="max-width: calc(100% - 180px); min-width: 300px;">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <div class="card shadow-sm hover-shadow p-3">
+                                <div class="row align-items-center">
+                                    <div class="col-md-6 mb-4 mb-md-0 text-center">
+                                        <div style="width: 200px; height: 200px; display: inline-block; overflow: hidden; border-radius: 0.25rem;">
+                                            <img src="images/donationph.jpg" alt="Donation" style="width: 100%; height: 100%; object-fit: cover;">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h2 class="mb-3" data-i18n="donate_title">Donate</h2>
+                                        <p class="lead" data-i18n="donate_text">We welcome one-time or recurring donations through our secure platform.</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <h2 class="mb-3" data-i18n="donate_title">Donate</h2>
-                            <p class="lead" data-i18n="donate_text">Make a one-time or recurring donation, or make a donation in someone's memory.</p>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Support Cards Section -->
-    <section class="py-5 bg-light">
-        <div class="container">
+            
+            <!-- Support Cards -->
             <div class="row justify-content-center">
                 <div class="col-lg-10 col-xl-9 px-3 px-sm-4">
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-center" style="align-items: flex-start;">
                         <div class="col-md-4 mb-4">
-                            <a href="#" class="text-decoration-none text-dark">
-                                <div class="card h-100 shadow-sm hover-shadow" style="max-width: 300px; margin: 0 auto;">
+                            <div class="support-card-container">
+                                <div class="card shadow-sm hover-shadow support-card" style="max-width: 300px; margin: 0 auto;">
                                     <div style="height: 0; padding-bottom: 100%; position: relative; overflow: hidden;">
                                         <img src="images/volunteerph.jpg" alt="Volunteer" class="card-img-top" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                                     </div>
-                                    <div class="card-body">
-                                        <p class="card-text" data-i18n="volunteer_card_text">We welcome volunteers or donated materials at our center! Contact us to learn more.</p>
+                                    <div class="card-body d-flex flex-column">
+                                        <p class="card-text" data-i18n="volunteer_card_text">Interested in volunteering or donating supplies?</p>
+                                        <div class="mt-3 volunteer-details">
+                                            <p>We are always ready to receive donations of medical or supplies for people with disabilities, including medication, wheelchairs, pushing chairs, walking sticks, diapers, various kinds of supports and tools.</p>
+                                            <p class="mb-1">Contact us to learn more:</p>
+                                            <ul class="list-unstyled contact-list">
+                                                <li class="mb-2"><i class="bi bi-telephone-fill"></i> <a href="tel:+212695305592">+212 695305592</a></li>
+                                                <li class="mb-2"><i class="bi bi-whatsapp"></i> <a href="https://wa.me/212695305592">212695305592</a></li>
+                                                <li class="mb-2"><i class="bi bi-envelope-fill"></i> <a href="mailto:michielbrosky@hotmail.com">michielbrosky@hotmail.com</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="mt-auto">
+                                            <button class="learn-more-btn w-100">Learn More <i class="bi bi-chevron-down chevron-icon"></i></button>
+                                        </div>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                         </div>
                         <div class="col-md-4 mb-4">
-                            <a href="#" class="text-decoration-none text-dark">
-                                <div class="card h-100 shadow-sm hover-shadow" style="max-width: 300px; margin: 0 auto;">
+                            <div class="support-card-container">
+                                <div class="card shadow-sm hover-shadow support-card" style="max-width: 300px; margin: 0 auto;">
                                     <div style="height: 0; padding-bottom: 100%; position: relative; overflow: hidden;">
-                                        <img src="images/cskfb2.jpg" alt="Socials" class="card-img-top" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                                        <img src="images/grouppic.jpg" alt="Socials" class="card-img-top" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                                     </div>
-                                    <div class="card-body">
-                                        <p class="card-text" data-i18n="socials_card_text">Follow our Facebook or Instagram to stay updated.</p>
+                                    <div class="card-body d-flex flex-column">
+                                        <p class="card-text" data-i18n="socials_card_text">Follow our Instagram or Facebook to stay updated.</p>
+                                        <div class="mt-auto">
+                                            <div class="d-flex flex-column">
+                                                <a href="https://instagram.com/centresocialkaria" class="social-link mb-1" target="_blank">
+                                                    <i class="bi bi-instagram"></i> @centresocialkaria
+                                                </a>
+                                                <a href="https://facebook.com/TogetherCSK" class="social-link" target="_blank">
+                                                    <i class="bi bi-facebook"></i> @TogetherCSK
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                         </div>
                         <div class="col-md-4 mb-4">
-                            <a href="land-campaign.html" class="text-decoration-none text-dark">
-                                <div class="card h-100 shadow-sm hover-shadow" style="max-width: 300px; margin: 0 auto;">
+                            <div class="support-card-container">
+                                <div class="card shadow-sm hover-shadow support-card" style="max-width: 300px; margin: 0 auto;">
                                     <div style="height: 0; padding-bottom: 100%; position: relative; overflow: hidden;">
                                         <img src="images/landph.jpg" alt="Land Campaign" class="card-img-top" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                                     </div>
-                                    <div class="card-body">
+                                    <div class="card-body d-flex flex-column">
                                         <p class="card-text" data-i18n="land_card_text">Learn more about our campaign to buy land and find out if you can help.</p>
+                                        <div class="mt-auto">
+                                            <a href="land-campaign.html" class="learn-more-btn w-100">Learn More</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Footer using Web Component -->
     <csk-footer></csk-footer>
+
+    <!-- JavaScript for Learn More button -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the Learn More button and the volunteer details section
+            const learnMoreBtn = document.querySelector('.learn-more-btn');
+            const volunteerDetails = document.querySelector('.volunteer-details');
+            
+            if (learnMoreBtn && volunteerDetails) {
+                // Toggle function for the volunteer details
+                learnMoreBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Toggle the show class for animation
+                    volunteerDetails.classList.toggle('show');
+                    
+                    // Update button text based on state
+                    if (volunteerDetails.classList.contains('show')) {
+                        learnMoreBtn.innerHTML = 'Show Less <i class="bi bi-chevron-up chevron-icon"></i>';
+                    } else {
+                        learnMoreBtn.innerHTML = 'Learn More <i class="bi bi-chevron-down chevron-icon"></i>';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

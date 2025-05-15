@@ -44,25 +44,4 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // And again after a short delay to ensure everything is loaded
     setTimeout(applyTranslations, 100);
-    
-    // Add refresh button for testing (will be hidden in production)
-    const refreshButton = document.createElement('button');
-    refreshButton.textContent = 'Refresh Translations';
-    refreshButton.style.position = 'fixed';
-    refreshButton.style.bottom = '10px';
-    refreshButton.style.right = '10px';
-    refreshButton.style.zIndex = '9999';
-    refreshButton.style.padding = '5px 10px';
-    refreshButton.style.backgroundColor = '#007bff';
-    refreshButton.style.color = 'white';
-    refreshButton.style.border = 'none';
-    refreshButton.style.borderRadius = '5px';
-    refreshButton.style.cursor = 'pointer';
-    
-    refreshButton.addEventListener('click', function() {
-        applyTranslations();
-        alert('Translations refreshed!');
-    });
-    
-    document.body.appendChild(refreshButton);
 });

@@ -49,8 +49,8 @@ window.translations = {
         support_us_title: "Support Us",
         support_us_placeholder: "Our essential programs rely on community support. There are many ways to help!",
         donate_title: "Donate",
-        donate_text: "Make a one-time or recurring donation, or make a donation in someone's memory.",
-        volunteer_card_text: "We welcome volunteers or donated materials at our center! Contact us to learn more.",
+        donate_text: "We welcome one-time or recurring donations through our secure platform.",
+        volunteer_card_text: "Interested in volunteering or donating supplies?",
         socials_card_text: "Follow our Facebook or Instagram to stay updated.",
         land_card_text: "Learn more about our campaign to buy land and find out if you can help.",
         
