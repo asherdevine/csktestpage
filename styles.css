@@ -21,32 +21,110 @@ body {
 
 /* General styles moved to CSS variables in :root */
 
-/* Custom CSS for Centre Social Kariat */
-
-/* Lazy Loading Styles */
-.lazy-image {
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    min-height: 1px;
-}
-
-.lazy-image.loaded {
-    opacity: 1;
-}
-
-.lazy-background {
-    background-color: #f0f0f0;
-    transition: background-image 0.3s ease-in-out;
-}
-
-.lazy-background.bg-loaded {
-    background-color: transparent;
-}
-
 /* Component-specific styles have been moved to their respective web components */
 
 /* Any speech bubble styles needed outside components should be added here */
 
+/* Custom Learn More button styling for support-us.html */
+.learn-more-btn, .social-link {
+    border: none;
+    font-size: 1.1rem;
+    color: var(--accent-blue);
+    background: transparent;
+    font-weight: 500;
+    text-decoration: none;
+    transition: text-decoration 0.2s ease;
+    align-self: flex-start;
+    padding-left: 0;
+}
+
+.learn-more-btn:hover, .social-link:hover {
+    text-decoration: underline;
+    background: transparent;
+}
+
+/* Social links specific styling */
+.social-link {
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+.social-link i {
+    margin-right: 0.25rem;
+}
+
+/* Chevron icon styling */
+.chevron-icon {
+    font-size: 0.9rem;
+    margin-left: 0.25rem;
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.chevron-up {
+    transform: rotate(180deg);
+}
+
+/* RTL support for icons */
+body.rtl .social-link i {
+    margin-right: 0;
+    margin-left: 0.25rem;
+}
+
+body.rtl .chevron-icon {
+    margin-left: 0;
+    margin-right: 0.25rem;
+}
+
+/* Support page card styles */
+.support-card-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.support-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-text {
+    flex-grow: 0;
+    min-height: 48px; /* Set a fixed minimum height for card text */
+    display: flex;
+    align-items: center;
+}
+
+/* Set fixed heights for the cards */
+.row.justify-content-center .col-md-4 {
+    display: flex;
+}
+
+.support-card-container {
+    width: 100%;
+}
+
+.volunteer-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease, margin 0.5s ease;
+    opacity: 0;
+    margin-top: 0 !important;
+}
+
+.volunteer-details.show {
+    max-height: 500px; /* Adjust as needed based on content */
+    opacity: 1;
+    margin-top: 1rem !important;
+}
 
 /* RTL Support */
 body.rtl {

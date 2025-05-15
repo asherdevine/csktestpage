@@ -24,9 +24,6 @@ class CSKPageHeader extends HTMLElement {
       this.applyTranslations(currentLang);
     }
     
-    // Initialize lazy loading for the header image
-    this.initLazyLoading();
-    
     // Listen for language-updated events
     document.addEventListener('language-updated', (event) => {
       const { language, translations } = event.detail;
@@ -103,7 +100,7 @@ class CSKPageHeader extends HTMLElement {
       </style>
       
       <div class="page-header">
-        <img data-src="${image}" alt="${title}" class="page-header-image lazy-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E">
+        <img src="${image}" alt="${title}" class="page-header-image">
         <div class="page-header-overlay">
           <h1 class="page-title" ${titleKey ? `data-i18n="${titleKey}"` : ''}>${title}</h1>
         </div>
@@ -130,59 +127,6 @@ class CSKPageHeader extends HTMLElement {
       const key = element.getAttribute('data-i18n');
       if (translationData[key]) {
         element.textContent = translationData[key];
-      }
-    });
-  }
-  
-  /**
-   * Initialize lazy loading for the header image
-   */
-  initLazyLoading() {
-    // Use IntersectionObserver if available
-    if ('IntersectionObserver' in window) {
-      const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            const src = img.getAttribute('data-src');
-            
-            if (src) {
-              img.src = src;
-              img.removeAttribute('data-src');
-              img.classList.add('loaded');
-            }
-            
-            // Stop observing the image once loaded
-            observer.unobserve(img);
-          }
-        });
-      }, {
-        rootMargin: '50px 0px', // Start loading when image is 50px from viewport
-        threshold: 0.01 // Trigger when at least 1% of the image is visible
-      });
-      
-      // Get all images with data-src attribute in the shadow DOM
-      const lazyImages = this.shadowRoot.querySelectorAll('img[data-src]');
-      lazyImages.forEach(img => {
-        // Start observing the image
-        imageObserver.observe(img);
-      });
-    } else {
-      // Fallback for browsers that don't support IntersectionObserver
-      this.loadImagesImmediately();
-    }
-  }
-  
-  /**
-   * Fallback function to load images immediately for browsers without IntersectionObserver
-   */
-  loadImagesImmediately() {
-    const lazyImages = this.shadowRoot.querySelectorAll('img[data-src]');
-    lazyImages.forEach(img => {
-      const src = img.getAttribute('data-src');
-      if (src) {
-        img.src = src;
-        img.removeAttribute('data-src');
       }
     });
   }
