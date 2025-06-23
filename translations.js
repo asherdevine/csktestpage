@@ -8,7 +8,7 @@ window.translations = {
         nav_programs: "Programs",
         nav_gallery: "Youth Stories",
         nav_contact: "Support Us",
-        nav_support: "Get Involved",
+        nav_support: "Support Us",
         
         // Carousel
         carousel_welcome: "Help Our Community Plant Roots",
@@ -130,7 +130,7 @@ window.translations = {
         footer_links: "Quick Links",
         footer_programs: "Programs",
         footer_events: "Events",
-        footer_involved: "Get Involved",
+        footer_involved: "Support Us",
         footer_contact: "Contact Us",
         footer_contact_info: "Contact Info",
         footer_copyright: "© 2025 Centre Social Kariat. All rights reserved.",
