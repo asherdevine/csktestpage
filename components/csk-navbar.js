@@ -3,8 +3,13 @@
  * A custom element that provides a reusable navigation bar for the Centre Social Kariat website
  */
 class CSKNavbar extends HTMLElement {
-  // Breakpoint for switching between wide and narrow screens (in pixels)
-  static NAVBAR_BREAKPOINT = 960;
+  // Define static constants for breakpoints that match CSS variables in styles.css
+  static BREAKPOINT_XS = 0;       // Matches --breakpoint-xs
+  static BREAKPOINT_SM = 576;     // Matches --breakpoint-sm
+  static BREAKPOINT_MD = 768;     // Matches --breakpoint-md
+  static BREAKPOINT_LG = 992;     // Matches --breakpoint-lg
+  static BREAKPOINT_XL = 1200;    // Matches --breakpoint-xl
+  static BREAKPOINT_XXL = 1400;   // Matches --breakpoint-xxl
   
   constructor() {
     super();
@@ -43,7 +48,21 @@ class CSKNavbar extends HTMLElement {
           width: 100%;
           z-index: 1030;
           padding: 0 1rem;
-          height: 45px;
+          height: 45px; /* Default height for sm and smaller screens */
+        }
+        
+        /* Medium height navbar on md screens */
+        @media (min-width: ${CSKNavbar.BREAKPOINT_MD}px) and (max-width: ${CSKNavbar.BREAKPOINT_LG - 0.02}px) {
+          .navbar {
+            height: 55px;
+          }
+        }
+        
+        /* Tallest navbar on large and larger screens */
+        @media (min-width: ${CSKNavbar.BREAKPOINT_LG}px) {
+          .navbar {
+            height: 65px;
+          }
         }
         
         .container {
@@ -70,22 +89,67 @@ class CSKNavbar extends HTMLElement {
           display: flex;
           align-items: center;
           font-family: "Segoe UI", Arial, sans-serif;
+          height: 45px; /* Match navbar height on sm and smaller screens */
+        }
+        
+        /* Medium height brand on md screens */
+        @media (min-width: ${CSKNavbar.BREAKPOINT_MD}px) and (max-width: ${CSKNavbar.BREAKPOINT_LG - 0.02}px) {
+          .navbar-brand {
+            height: 55px;
+          }
+        }
+        
+        /* Tallest brand on large screens */
+        @media (min-width: ${CSKNavbar.BREAKPOINT_LG}px) {
+          .navbar-brand {
+            height: 65px;
+          }
         }
         
         .navbar-brand img {
-          height: 35px;
+          height: 25px; /* Default size for small screens */
           margin-right: 10px;
         }
         
-        .brand-text {
-          white-space: nowrap; /* Prevent text from wrapping */
+        /* Larger logo on medium and larger screens */
+        @media (min-width: ${CSKNavbar.BREAKPOINT_MD}px) and (max-width: ${CSKNavbar.BREAKPOINT_LG - 0.02}px) {
+          .navbar-brand img {
+            height: 30px;
+          }
         }
         
-        /* Hide brand text at specific breakpoint where it would wrap */
-        @media (max-width: 500px) {
+        /* Largest logo on large screens */
+        @media (min-width: ${CSKNavbar.BREAKPOINT_LG}px) {
+          .navbar-brand img {
+            height: 35px;
+          }
+        }
+        
+        .brand-text {
+          white-space: normal; /* Allow text to wrap */
+          display: flex;
+          flex-direction: row; /* Default to row (single line) */
+          align-items: baseline;
+          line-height: 1;
+          font-size: 1.2rem;
+          padding-top: 3px;
+          margin-left: 10px;
+        }
+        
+        /* Hide brand text on extra small (xs) screens */
+        @media (max-width: ${CSKNavbar.BREAKPOINT_SM}px) {
           .brand-text {
             display: none;
           }
+        }
+        
+        .brand-text span {
+          display: inline;
+          margin-right: 5px;
+        }
+        
+        .brand-text span:last-child {
+          margin-right: 0;
         }
         
         .navbar-nav {
@@ -160,7 +224,7 @@ class CSKNavbar extends HTMLElement {
           white-space: nowrap; /* Prevent text wrapping */
         }
         
-        @media (max-width: ${CSKNavbar.NAVBAR_BREAKPOINT}px) {
+        @media (max-width: ${CSKNavbar.BREAKPOINT_LG}px) {
           .navbar-nav .dropdown-toggle {
             height: auto; /* Reset height for mobile view */
             padding: 0 0.75rem;
@@ -291,8 +355,8 @@ class CSKNavbar extends HTMLElement {
           background: none;
           border: none;
           cursor: pointer;
-          padding: 0.5rem;
-          margin-right: 30px; /* Margin from right edge */
+          padding: 0;
+          margin: 0;
           width: 30px;
           height: 30px;
           position: relative;
@@ -362,16 +426,23 @@ class CSKNavbar extends HTMLElement {
         }
         
         /* Responsive adjustments */
-        @media (max-width: ${CSKNavbar.NAVBAR_BREAKPOINT}px) {
+        @media (max-width: ${CSKNavbar.BREAKPOINT_LG}px) {
           .navbar-toggler {
-            display: block;
-            position: absolute;
-            top: 50%;
-            right: 15px;
-            transform: translateY(-50%);
-            height: 30px; /* Reduced height */
             display: flex;
+            position: absolute;
+            top: 0;
+            right: 15px;
+            height: 45px; /* Match navbar height for sm and smaller screens */
             align-items: center;
+            justify-content: center;
+            padding-right: 80px;
+            box-sizing: border-box;
+          }
+          
+          @media (min-width: ${CSKNavbar.BREAKPOINT_MD}px) and (max-width: ${CSKNavbar.BREAKPOINT_LG - 0.02}px) {
+            .navbar-toggler {
+              height: 55px; /* Match navbar height for md screens */
+            }
           }
           
           /* RTL support for mobile menu */
@@ -389,14 +460,14 @@ class CSKNavbar extends HTMLElement {
           .nav-and-lang-container {
             justify-content: flex-end;
             padding-right: 70px; /* Further increased space for the hamburger icon */
-            height: 30px; /* Reduced height */
+            height: 100%; /* Match the height of the navbar */
             display: flex;
             align-items: center;
           }
           
           .nav-container {
             position: absolute;
-            top: 45px;
+            top: 45px; /* Match navbar height for sm and smaller screens */
             left: 0;
             width: 100%;
             background-color: #f8f9fa;
@@ -410,6 +481,20 @@ class CSKNavbar extends HTMLElement {
             z-index: 1029;
             text-align: left;
             box-sizing: border-box; /* Ensure padding is included in width calculation */
+          }
+          
+          /* Adjust dropdown position for md screens */
+          @media (min-width: ${CSKNavbar.BREAKPOINT_MD}px) and (max-width: ${CSKNavbar.BREAKPOINT_LG - 0.02}px) {
+            .nav-container {
+              top: 55px; /* Match navbar height for md screens */
+            }
+          }
+          
+          /* Adjust dropdown position for lg screens */
+          @media (min-width: ${CSKNavbar.BREAKPOINT_LG}px) {
+            .nav-container {
+              top: 65px; /* Match navbar height for lg screens */
+            }
           }
           
           /* RTL support for dropdown menu */
@@ -467,7 +552,7 @@ class CSKNavbar extends HTMLElement {
           .language-switcher {
             margin-left: 0;
             padding-right: 1rem; /* Add padding from right edge in mobile view */
-            height: 30px; /* Reduced height */
+            height: 40px; /* Increased height for taller navbar */
             display: flex;
             align-items: center;
           }
@@ -478,7 +563,11 @@ class CSKNavbar extends HTMLElement {
         <div class="container">
           <a class="navbar-brand" href="index.html">
             <img src="images/csklogo2.png" alt="CSK Logo" />
-            <span class="brand-text">Centre Social Kariat</span>
+            <div class="brand-text">
+              <span>Centre</span>
+              <span>Social</span>
+              <span>Kariat</span>
+            </div>
           </a>
           
           <!-- Always visible on all screen sizes -->
@@ -498,7 +587,8 @@ class CSKNavbar extends HTMLElement {
                   </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="programs.html" data-i18n="nav_programs">Programs</a></li>
-                <li class="nav-item"><a class="nav-link" href="support-us.html" data-i18n="nav_contact">Support Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="location.html" data-i18n="nav_location">Location</a></li>
+                <li class="nav-item"><a class="nav-link" href="support-us.html" data-i18n="nav_support">Support Us</a></li>
               </ul>
             </div>
             
@@ -558,9 +648,9 @@ class CSKNavbar extends HTMLElement {
         }
       });
       
-      // Close mobile menu when window is resized to desktop size
+      // Close mobile menu if window is resized to desktop size
       window.addEventListener('resize', () => {
-        if (window.innerWidth > CSKNavbar.NAVBAR_BREAKPOINT && navContainer.classList.contains('show')) {
+        if (window.innerWidth > CSKNavbar.BREAKPOINT_LG && navContainer.classList.contains('show')) {
           navbarToggler.classList.remove('active');
           navContainer.classList.remove('show');
         }

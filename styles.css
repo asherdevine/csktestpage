@@ -1,5 +1,6 @@
 /* General Styles */
 :root {
+    /* Color variables */
     --bg-color: #e9dcc85d; /* Warm off-white */
     --accent-color: #4a7c59; /* Forest green */
     --accent-light: #8cb369; /* Light green */
@@ -10,6 +11,14 @@
     --neutral-light: #e8e2d7; /* Light neutral */
     --neutral-medium: #d3c9b6; /* Medium neutral */
     --section-bg-light: #f8f9fa; /* Light background for sections (Bootstrap bg-light equivalent) */
+    
+    /* Breakpoint variables aligned with Bootstrap 5 */
+    --breakpoint-xs: 0; /* Extra small devices (portrait phones) */
+    --breakpoint-sm: 576px; /* Small devices (landscape phones) */
+    --breakpoint-md: 768px; /* Medium devices (tablets) */
+    --breakpoint-lg: 992px; /* Large devices (desktops) */
+    --breakpoint-xl: 1200px; /* Extra large devices (large desktops) */
+    --breakpoint-xxl: 1400px; /* Extra extra large devices (larger desktops) */
 }
 
 body {
@@ -259,7 +268,7 @@ body.rtl .text-center .section-title::after {
     transition: all 0.3s ease;
 }
 
-@media (min-width: 992px) {
+@media (min-width: var(--breakpoint-lg)) {
     .about-image-container {
         min-height: calc(350px + 5vw);
         max-height: 600px;
@@ -386,10 +395,10 @@ body.rtl .text-center .section-title::after {
     aspect-ratio: 3/2; /* Default 3:2 aspect ratio for mobile/vertical layout */
 }
 
-/* Make images square when displayed side-by-side on larger screens */
-@media (min-width: 768px) {
+/* Make images square when displayed side-by-side */
+@media (min-width: var(--breakpoint-md)) {
     .program-card img {
-        aspect-ratio: 1/1; /* Square aspect ratio for desktop/side-by-side layout */
+        aspect-ratio: 1/1;
     }
 }
 
@@ -440,9 +449,9 @@ footer .bi {
 }
 
 /* Responsive Adjustments */
-@media (max-width: 768px) {
+@media (max-width: var(--breakpoint-md)) {
     #homeCarousel {
-        margin-top: 45px; /* Maintain navbar height on mobile */
+        margin-top: 45px;
     }
     
     .carousel-item {

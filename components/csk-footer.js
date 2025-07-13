@@ -3,6 +3,13 @@
  * A custom element that provides a reusable footer for the Centre Social Kariat website
  */
 class CSKFooter extends HTMLElement {
+  // Define static constants for breakpoints that match CSS variables in styles.css
+  static BREAKPOINT_XS = 0;       // Matches --breakpoint-xs
+  static BREAKPOINT_SM = 576;     // Matches --breakpoint-sm
+  static BREAKPOINT_MD = 768;     // Matches --breakpoint-md
+  static BREAKPOINT_LG = 992;     // Matches --breakpoint-lg
+  static BREAKPOINT_XL = 1200;    // Matches --breakpoint-xl
+  static BREAKPOINT_XXL = 1400;   // Matches --breakpoint-xxl
   constructor() {
     super();
     // Create a shadow root for encapsulation
@@ -61,34 +68,20 @@ class CSKFooter extends HTMLElement {
           margin-left: -15px;
         }
         
-        .col {
-          flex-basis: 0;
-          flex-grow: 1;
-          max-width: 100%;
-          padding-right: 15px;
-          padding-left: 15px;
-        }
+        /* Removed unused .col class */
         
-        /* Default mobile view (under 500px): all columns stacked */
+        /* Responsive columns */
         .col-footer {
           flex: 0 0 100%;
           max-width: 100%;
           margin-bottom: 2rem;
         }
         
-        /* Medium screens (500px-900px): 2x2 grid layout */
-        @media (min-width: 500px) {
+        /* Medium screens and up: 2 columns side-by-side */
+        @media (min-width: ${CSKFooter.BREAKPOINT_SM}px) {
           .col-footer {
             flex: 0 0 50%;
             max-width: 50%;
-          }
-        }
-        
-        /* Large screens (over 900px): all 4 columns side-by-side */
-        @media (min-width: 900px) {
-          .col-footer {
-            flex: 0 0 25%;
-            max-width: 25%;
           }
         }
         
@@ -140,8 +133,8 @@ class CSKFooter extends HTMLElement {
           text-align: center;
         }
         
-        .mt-3 {
-          margin-top: 1rem;
+        .mt-4 {
+          margin-top: 1.5rem;
         }
         
         .mb-0 {
@@ -211,17 +204,6 @@ class CSKFooter extends HTMLElement {
           min-width: 20px;
         }
         
-        .footer-map-container {
-          margin-top: 0.5rem;
-        }
-        
-        .footer-map {
-          max-width: 80%;
-          height: auto;
-          border-radius: 8px;
-          display: block;
-        }
-        
         /* Ensure all columns have the same vertical alignment */
         .col-footer {
           display: flex;
@@ -230,25 +212,6 @@ class CSKFooter extends HTMLElement {
         
         .col-footer h5 {
           margin-bottom: 1rem;
-        }
-        
-        .footer-text {
-          font-size: 0.9rem;
-          line-height: 1.4;
-          margin-bottom: 1rem;
-          color: #f8f9fa;
-        }
-
-        .footer-image {
-          width: 80%;
-          height: auto;
-          border-radius: 8px;
-          margin-top: 0.5rem;
-          margin-left: 0;
-          margin-right: auto;
-          display: block;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-          transition: transform 0.3s ease;
         }
         
        
@@ -262,7 +225,7 @@ class CSKFooter extends HTMLElement {
               <ul class="list-unstyled footer-links">
                 <li><a href="our-story.html" data-i18n="nav_about_csk">Our Story</a></li>
                 <li><a href="programs.html" data-i18n="nav_programs">Programs</a></li>
-                <li><a href="support-us.html" data-i18n="nav_support">Get Involved</a></li>
+                <li><a href="support-us.html" data-i18n="nav_support">Support Us</a></li>
               </ul>
             </div>
             
@@ -278,18 +241,7 @@ class CSKFooter extends HTMLElement {
               </ul>
             </div>
             
-            <div class="col-footer">
-              <h5>Location</h5>
-              <div class="footer-map-container">
-                <img src="images/location.png" alt="CSK on the map" class="footer-map">
-              </div>
-            </div>
-            
-            <div class="col-footer">
-              <h5>Getting Here</h5>
-              <p class="footer-text">We are located on Rue Zagoura near Ave. Zarbia and Hassain stop on tram Line 2. Please stop by the centre for a coffee and to meet our families!</p>
-              <img src="images/pic3.jpg" alt="CSK Community" class="footer-image">
-            </div>
+            <!-- Location and Getting Here columns removed -->
           </div>
           
           <div class="text-center mt-4">

@@ -88,7 +88,7 @@ class CSKPageHeader extends HTMLElement {
         }
         
         /* Responsive adjustments */
-        @media (max-width: 768px) {
+        @media (max-width: var(--breakpoint-md)) {
           .page-header {
             height: 200px;
           }
